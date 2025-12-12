@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETF로 제2의 월급 만들기: 3050세대를 위한 현금흐름 구축 가이드</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth; /* 부드러운 스크롤 이동 */
+            scroll-padding-top: 20px; /* 스크롤 이동 시 상단 여백 확보 */
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .urbanist {
+            font-family: 'Urbanist', sans-serif;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-text-blue {
+            background: linear-gradient(to right, #1e3a8a, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-text-red {
+            background: linear-gradient(to right, #991b1b, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-10 px-4">
+
+    <!-- Book Title Section -->
+    <div class="w-full max-w-4xl text-center mb-6 pb-6 border-b border-slate-300/50">
+        <div class="inline-flex items-center justify-center space-x-2 text-slate-500 mb-2">
+            <i class="fa-solid fa-book-open"></i>
+            <span class="text-sm font-bold uppercase tracking-wider urbanist">Book Title</span>
+        </div>
+        <h1 class="text-2xl md:text-3xl font-black text-slate-800">
+            ETF로 제2의 월급 만들기
+        </h1>
+        <p class="text-lg md:text-xl text-slate-600 mt-1 font-medium">
+            : 3050세대를 위한 현금흐름 구축 가이드
+        </p>
+    </div>
+
+    <!-- Quick Link Buttons (Split) -->
+    <div class="flex flex-col sm:flex-row gap-4 mb-10 animate-bounce-slow">
+        <a href="#curriculum-basic" class="group bg-white border border-blue-200 text-blue-700 hover:bg-blue-50 px-6 py-3 rounded-full font-bold shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 min-w-[180px]">
+            <i class="fa-solid fa-anchor text-blue-400 group-hover:text-blue-600 transition-colors"></i>
+            기초과정 목차
+            <i class="fa-solid fa-arrow-down text-xs opacity-50 group-hover:translate-y-1 transition-transform"></i>
+        </a>
+        <a href="#curriculum-advanced" class="group bg-white border border-red-200 text-red-700 hover:bg-red-50 px-6 py-3 rounded-full font-bold shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 min-w-[180px]">
+            <i class="fa-solid fa-rocket text-red-400 group-hover:text-red-600 transition-colors"></i>
+            심화과정 목차
+            <i class="fa-solid fa-arrow-down text-xs opacity-50 group-hover:translate-y-1 transition-transform"></i>
+        </a>
+    </div>
+
+    <!-- Header Section -->
+    <header class="text-center mb-12 max-w-4xl w-full">
+        <div class="inline-block px-6 py-2 bg-slate-200 rounded-full text-slate-700 text-lg font-bold mb-4 shadow-sm">
+            3050 세대 경제적 자유 프로젝트
+        </div>
+        <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-4 leading-tight">
+            자산을 지키는 <span class="text-blue-600">방주(Ark)</span>에서<br>
+            자산을 불리는 <span class="text-red-600">엔진(Engine)</span>까지
+        </h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+            생존을 위한 방패부터 성장을 위한 창까지, 단계별 금융 로드맵을 확인하세요.
+        </p>
+    </header>
+
+    <!-- SECTION 1: GOAL SUMMARY (Infographic) - Restored to Initial Design -->
+    <main class="grid md:grid-cols-2 gap-8 max-w-6xl w-full mb-16">
+        
+        <!-- Column 1: Basic Course Summary -->
+        <section class="bg-white rounded-3xl overflow-hidden shadow-xl border-t-8 border-blue-600 relative flex flex-col h-full border border-slate-100">
+            <div class="absolute top-0 right-0 p-4 opacity-5">
+                <i class="fa-solid fa-ship text-9xl"></i>
+            </div>
+            
+            <div class="p-8 bg-blue-50">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-2xl font-black text-blue-900">기초과정</h2>
+                    <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full urbanist">STEP 1</span>
+                </div>
+                <h3 class="text-3xl font-bold mb-2 gradient-text-blue">금융 방주 (Ark) 구축</h3>
+                <p class="text-blue-800 font-medium italic">"공격보다 중요한 것은 생존이다."</p>
+                <p class="text-sm text-slate-600 mt-2">무너지지 않는 불침번(Unsinkable) 시스템 완성</p>
+            </div>
+
+            <div class="p-6 space-y-4 flex-grow">
+                <!-- Item 1 -->
+                <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm card-hover flex gap-4 items-start">
+                    <div class="bg-blue-100 p-3 rounded-lg text-blue-600 shrink-0">
+                        <i class="fa-solid fa-brain text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg">자본 마인드 장착</h4>
+                        <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
+                            <li>노동 소득의 한계 극복</li>
+                            <li>공포와 탐욕 통제 (잃지 않는 투자)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm card-hover flex gap-4 items-start">
+                    <div class="bg-blue-100 p-3 rounded-lg text-blue-600 shrink-0">
+                        <i class="fa-solid fa-filter text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg">ETF 감별 안목</h4>
+                        <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
+                            <li>종목명 해석 및 고배당 함정 회피</li>
+                            <li>CAGR(성장률)과 비용 분석 능력</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm card-hover flex gap-4 items-start">
+                    <div class="bg-blue-100 p-3 rounded-lg text-blue-600 shrink-0">
+                        <i class="fa-solid fa-shield-halved text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg">방주 포트폴리오</h4>
+                        <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
+                            <li>성장(공격) vs 배당/안전(수비) 황금 비율</li>
+                            <li>S&P500 + 채권 조합 (위기 방어)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm card-hover flex gap-4 items-start">
+                    <div class="bg-blue-100 p-3 rounded-lg text-blue-600 shrink-0">
+                        <i class="fa-solid fa-money-bill-wheat text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg">제1차 현금흐름</h4>
+                        <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
+                            <li>월배당(JEPI, SCHD) 기초 라인업</li>
+                            <li>연금저축/ISA 활용 세금 절약 시스템</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Column 2: Advanced Course Summary -->
+        <section class="bg-white rounded-3xl overflow-hidden shadow-xl border-t-8 border-red-500 relative flex flex-col h-full border border-slate-100">
+            <div class="absolute top-0 right-0 p-4 opacity-5">
+                <i class="fa-solid fa-rocket text-9xl"></i>
+            </div>
+
+            <div class="p-8 bg-red-50">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-2xl font-black text-red-900">심화과정</h2>
+                    <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full urbanist">STEP 2</span>
+                </div>
+                <h3 class="text-3xl font-bold mb-2 gradient-text-red">터보 엔진 장착</h3>
+                <p class="text-red-800 font-medium italic">"방패를 넘어 창을 들 시간이다."</p>
+                <p class="text-sm text-slate-600 mt-2">경제적 자유를 앞당기는 결정적 한 방</p>
+            </div>
+
+            <div class="p-6 space-y-4 flex-grow">
+                <!-- Item 1 -->
+                <div class="bg-white p-5 rounded-xl border border-red-100 shadow-sm card-hover flex gap-4 items-start">
+                    <div class="bg-red-100 p-3 rounded-lg text-red-500 shrink-0">
+                        <i class="fa-solid fa-eye text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg">시장을 꿰뚫는 통찰</h4>
+                        <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
+                            <li>이면의 생태계 발견 (전력망, SW 등)</li>
+                            <li>거시 경제 흐름 선점 (K-조선, 방산 등)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bg-white p-5 rounded-xl border border-red-100 shadow-sm card-hover flex gap-4 items-start">
+                    <div class="bg-red-100 p-3 rounded-lg text-red-500 shrink-0">
+                        <i class="fa-solid fa-chess-knight text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg">올라운더(All-rounder)</h4>
+                        <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
+                            <li>상승장: 레버리지 & 혁신 테마 가속</li>
+                            <li>횡보/하락장: 커버드콜 & 채권 방어</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="bg-white p-5 rounded-xl border border-red-100 shadow-sm card-hover flex gap-4 items-start">
+                    <div class="bg-red-100 p-3 rounded-lg text-red-500 shrink-0">
+                        <i class="fa-solid fa-faucet-drip text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg">제2의 월급 시스템</h4>
+                        <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
+                            <li>마르지 않는 현금 우물 구축</li>
+                            <li>월 300~700만 원 목표 자동화 수입</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="bg-white p-5 rounded-xl border border-red-100 shadow-sm card-hover flex gap-4 items-start">
+                    <div class="bg-red-100 p-3 rounded-lg text-red-500 shrink-0">
+                        <i class="fa-solid fa-clipboard-check text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg">맞춤형 정답지 (Solution)</h4>
+                        <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
+                            <li>연령/성향/은퇴 상황별 최적 포트폴리오</li>
+                            <li>검증된 ETF 정답지로 시행착오 최소화</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Divider -->
+    <div class="w-full max-w-6xl flex items-center gap-4 mb-12">
+        <div class="h-px bg-slate-300 flex-grow"></div>
+        <span class="text-slate-400 font-bold uppercase tracking-widest text-sm urbanist">Detailed Curriculum</span>
+        <div class="h-px bg-slate-300 flex-grow"></div>
+    </div>
+
+    <!-- SECTION 2: DETAILED CURRICULUM (TOC) -->
+    <section class="max-w-4xl w-full flex flex-col gap-16">
+        
+        <!-- PART 1: Basic Course TOC -->
+        <!-- ID added for scroll target -->
+        <div id="curriculum-basic" class="space-y-6 scroll-mt-24">
+            
+            <!-- Section Header -->
+            <div class="flex items-center gap-4 mb-6 border-b-2 border-blue-100 pb-4">
+                <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm">
+                    <i class="fa-solid fa-anchor text-2xl"></i>
+                </div>
+                <div>
+                    <span class="text-blue-600 font-bold text-sm tracking-wider uppercase">Basic Course</span>
+                    <h3 class="text-3xl font-black text-slate-800">기초과정 상세 커리큘럼</h3>
+                </div>
+            </div>
+
+            <!-- Prologue Box -->
+            <div class="bg-gradient-to-br from-blue-50 to-white p-6 rounded-2xl border border-blue-100 shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 translate-x-10 -translate-y-10"></div>
+                <div class="relative z-10">
+                    <p class="text-sm font-bold text-blue-800 mb-1 flex items-center gap-2"><i class="fa-solid fa-book-open text-blue-500"></i> 프롤로그</p>
+                    <p class="text-slate-700 text-lg font-bold mb-3">열심히 산 죄밖에 없는 당신, 왜 자산은 제자리인가?</p>
+                    <div class="pt-3 border-t border-blue-200/50">
+                         <p class="text-sm font-bold text-blue-900 bg-blue-100/50 inline-block px-3 py-1 rounded-lg">■ 미션: 3050을 위한 금융 방주(Ark) 구축</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapter 1 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="shrink-0 flex md:flex-col items-center md:items-start gap-2">
+                        <span class="text-5xl font-black text-blue-100 urbanist leading-none">01</span>
+                        <div class="h-1 w-12 bg-blue-500 rounded-full hidden md:block"></div>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">노동의 종말: 열심히 일한 당신이 가난해지는 이유</h4>
+                        <ul class="space-y-3">
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>노동만으로는 답이 없다: 멈추면 쓰러지는 러닝머신 탈출기</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>당신의 뇌는 투자를 망치도록 설계되었다: 폭망을 부르는 뇌과학</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>삼성전자도 안심 마라: 죽은 기업들의 무덤을 밟고 올라선 ETF</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>솔로몬의 지혜: 3,000년 전 이미 완성된 부의 절대 공식</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>천재들의 슈퍼컴퓨터를 이긴 버핏의 햄버거 전략</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>영원히 늙지 않는 불로불사의 몸, '리밸런싱'</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>복리의 마법을 갉아먹는 기생충, '비용'을 잡아라</span></li>
+                            <li class="text-blue-700 flex items-start gap-3 font-semibold mt-4 bg-blue-50 p-3 rounded-lg"><i class="fa-solid fa-check-double mt-1"></i><span>[ 실전 가이드 ] 당신의 방주는 준비되었는가?</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapter 2 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="shrink-0 flex md:flex-col items-center md:items-start gap-2">
+                        <span class="text-5xl font-black text-blue-100 urbanist leading-none">02</span>
+                        <div class="h-1 w-12 bg-blue-500 rounded-full hidden md:block"></div>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">가짜 고수익에 속지 않는 ETF 감별법</h4>
+                        <ul class="space-y-3">
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>암호문 같은 종목명, 1분 만에 해석하는 독해법</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>연 10% 배당의 치명적 함정: 두 얼굴의 숫자에 속지 마라</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>지금의 3%보다 강력한 미래의 30%: 배당성장률의 마법</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>다 퍼주는 사장님은 의심하라: 배당성향의 배신</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>하루 늦으면 국물도 없다: 배당 캘린더 완벽 공략</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>배당 따먹다 원금 까먹는 바보가 되지 마라: 총수익률의 진실</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>0.1%의 수수료가 1억 원을 가른다: 숨겨진 진짜 비용 TER</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>1,000억 원 이하는 쳐다보지도 마라: 쪽박 ETF 거르는 법</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>3배 빨리 부자 되려다 3배 빨리 깡통 찬다</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>국세청과 동업하지 마라: 합법적으로 세금 아끼는 절세의 기술</span></li>
+                            <li class="text-blue-700 flex items-start gap-3 font-semibold mt-4 bg-blue-50 p-3 rounded-lg"><i class="fa-solid fa-check-double mt-1"></i><span>[ 실전 가이드 ] 슈퍼스타 ETF를 고르는 7가지 체크리스트</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapter 3 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="shrink-0 flex md:flex-col items-center md:items-start gap-2">
+                        <span class="text-5xl font-black text-blue-100 urbanist leading-none">03</span>
+                        <div class="h-1 w-12 bg-blue-500 rounded-full hidden md:block"></div>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">절대 침몰하지 않는 나만의 방주 짓기</h4>
+                        <ul class="space-y-3">
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>SPY는 부자들의 것? 3050을 위한 가성비 최강 ETF, SPLG</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>분석할 시간 없다면 컨닝하라: 버핏의 포트폴리오 훔치기</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>나스닥이 흔들릴 때 계좌를 지키는 7인의 기사단</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>전쟁이 나도 콜라는 마신다: 불황을 모르는 필수소비재 ETF</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>글로벌 분산: 미국이 기침하면 유럽으로 피신하라</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>노는 돈은 죄악이다: 잠시 쉴 때도 4% 버는 파킹형 ETF</span></li>
+                            <li class="text-blue-700 flex items-start gap-3 font-semibold mt-4 bg-blue-50 p-3 rounded-lg"><i class="fa-solid fa-check-double mt-1"></i><span>[ 실전 가이드 ] 3050을 위한 최적의 ETF 라인업</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapter 4 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="shrink-0 flex md:flex-col items-center md:items-start gap-2">
+                        <span class="text-5xl font-black text-blue-100 urbanist leading-none">04</span>
+                        <div class="h-1 w-12 bg-blue-500 rounded-full hidden md:block"></div>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">숨만 쉬어도 입금되는 제2의 월급, 월배당 세팅법</h4>
+                        <ul class="space-y-3">
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>서학개미가 사랑한 월급 기계: 연 8% 배당의 아이돌, JEPI</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>변동성을 현금으로 바꾼다: 야수의 심장을 위한 연 12%, JEPQ</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>무식한 고배당은 가라: 성장과 배당을 다 잡는 똑똑한 DIVO</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>세금 낼 돈으로 복리를 만든다: 절세 계좌와 한국판 월배당 조합</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>제 살 깎아먹는 배당을 피하라: 커버드콜의 치명적 약점</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-blue-400 mt-1.5 text-xs"></i><span>[사례 분석] 귀찮은 당신을 위한 '3-ETF 자동화 시스템'</span></li>
+                            <li class="text-blue-700 flex items-start gap-3 font-semibold mt-4 bg-blue-50 p-3 rounded-lg"><i class="fa-solid fa-check-double mt-1"></i><span>[ 실전 가이드 ] 3050을 위한 현금 흐름 전략</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Epilogue -->
+            <div class="bg-slate-100 p-6 rounded-2xl border border-slate-200 text-center">
+                <p class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-1">Epilogue</p>
+                <p class="text-slate-800 text-lg font-bold">당신의 노후는 오늘 결정된다</p>
+            </div>
+        </div>
+
+        <!-- DIVIDER -->
+        <div class="flex items-center gap-4">
+            <div class="h-1 bg-slate-200 flex-grow rounded-full"></div>
+            <i class="fa-solid fa-arrow-down text-slate-300 text-xl animate-bounce"></i>
+            <div class="h-1 bg-slate-200 flex-grow rounded-full"></div>
+        </div>
+
+        <!-- PART 2: Advanced Course TOC -->
+        <!-- ID added for scroll target -->
+        <div id="curriculum-advanced" class="space-y-6 scroll-mt-24">
+
+            <!-- Section Header -->
+            <div class="flex items-center gap-4 mb-6 border-b-2 border-red-100 pb-4">
+                <div class="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center text-red-600 shadow-sm">
+                    <i class="fa-solid fa-rocket text-2xl"></i>
+                </div>
+                <div>
+                    <span class="text-red-600 font-bold text-sm tracking-wider uppercase">Advanced Course</span>
+                    <h3 class="text-3xl font-black text-slate-800">심화과정 상세 커리큘럼</h3>
+                </div>
+            </div>
+
+            <!-- Prologue Box -->
+            <div class="bg-gradient-to-br from-red-50 to-white p-6 rounded-2xl border border-red-100 shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-red-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 translate-x-10 -translate-y-10"></div>
+                <div class="relative z-10">
+                    <p class="text-sm font-bold text-red-800 mb-1 flex items-center gap-2"><i class="fa-solid fa-book-open text-red-500"></i> 프롤로그</p>
+                    <p class="text-slate-700 text-lg font-bold mb-3">ETF로 자산의 레벨을 높여라</p>
+                    <div class="pt-3 border-t border-red-200/50">
+                         <p class="text-sm font-bold text-red-900 bg-red-100/50 inline-block px-3 py-1 rounded-lg">■ 미션: 3050 경제적 자유를 앞당기는 터보 엔진 장착</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapter 1 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="shrink-0 flex md:flex-col items-center md:items-start gap-2">
+                        <span class="text-5xl font-black text-red-100 urbanist leading-none">01</span>
+                        <div class="h-1 w-12 bg-red-500 rounded-full hidden md:block"></div>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">월급쟁이 인생, 이 한 방으로 레벨업하라</h4>
+                        <ul class="space-y-3">
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>S&P500이 지루한 당신에게: 미국 대장주만 골라 담은 M7 특공대</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>엔비디아 다음 타자는 누구인가? 관세 장벽을 뚫는 소프트웨어의 마법</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>애플 망한다는 소리에 속지 마라: 위기설이 들릴 때가 가장 싼 매수 기회</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>먹으면서 뺀다? 전 세계 지갑을 여는 '기적의 주사'에 베팅하라</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>지갑은 닫혀도 티켓은 팔린다: 인간의 억눌린 본능에 베팅하는 법</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>야수의 심장: 3배 레버리지, 독이 든 성배인가 기회인가</span></li>
+                            <li class="text-red-700 flex items-start gap-3 font-semibold mt-4 bg-red-50 p-3 rounded-lg"><i class="fa-solid fa-crosshairs mt-1"></i><span>[ 실전 가이드 ] 당신의 무기를 선택하라</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapter 2 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="shrink-0 flex md:flex-col items-center md:items-start gap-2">
+                        <span class="text-5xl font-black text-red-100 urbanist leading-none">02</span>
+                        <div class="h-1 w-12 bg-red-500 rounded-full hidden md:block"></div>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">남들이 엔비디아 볼 때, 고수는 여길 산다</h4>
+                        <ul class="space-y-3">
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>AI 시대, 전기는 새로운 황금이다: 제2의 슈퍼사이클에 올라타라</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>트럼프도 SOS 쳤다: 미국이 굽신거리는 K-방산·조선의 독주</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>관세 폭탄이 떨어져도 무풍지대: 국경을 넘는 무형의 현금 채굴기</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>공포에 사서 탐욕에 팔아라: 왕의 귀환을 노리는 10%의 역발상</span></li>
+                            <li class="text-red-700 flex items-start gap-3 font-semibold mt-4 bg-red-50 p-3 rounded-lg"><i class="fa-solid fa-crosshairs mt-1"></i><span>[ 실전 가이드 ] 틈새를 공략하는 스나이퍼가 되라</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapter 3 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="shrink-0 flex md:flex-col items-center md:items-start gap-2">
+                        <span class="text-5xl font-black text-red-100 urbanist leading-none">03</span>
+                        <div class="h-1 w-12 bg-red-500 rounded-full hidden md:block"></div>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">숨만 쉬어도 통장에 돈이 꽂힌다</h4>
+                        <ul class="space-y-3">
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>1억으로 10억 만들기: 성장·배당·절세의 황금 삼각 편대</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>한국 주식, 안 올라도 돈 번다: '박스피' 역이용 전략</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>워런 버핏의 유언을 실천하라: 미국은 결코 망하지 않는다</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>연봉 1억 부럽지 않다: 매달 700만 원 꽂히는 현금 채굴기</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>창과 방패의 완벽한 조화: 성장과 배당을 한 번에</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>이것도 저것도 불안하다면: 계좌를 지키는 하이브리드 필살기</span></li>
+                            <li class="text-red-700 flex items-start gap-3 font-semibold mt-4 bg-red-50 p-3 rounded-lg"><i class="fa-solid fa-crosshairs mt-1"></i><span>[ 실전 가이드 ] 당신의 포트폴리오는 밤새 일하고 있는가?</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapter 4 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="shrink-0 flex md:flex-col items-center md:items-start gap-2">
+                        <span class="text-5xl font-black text-red-100 urbanist leading-none">04</span>
+                        <div class="h-1 w-12 bg-red-500 rounded-full hidden md:block"></div>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">복잡한 건 딱 질색이라면: 그냥 그대로 베껴 쓰는 'ETF 정답지'</h4>
+                        <ul class="space-y-3">
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>은퇴 포트폴리오: 시기별 완벽 솔루션</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>연령대별 포트폴리오: 생애주기별 맞춤 설계</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>투자성향별 포트폴리오: 강심장 야수부터 유리 멘탈까지</span></li>
+                            <li class="text-slate-600 flex items-start gap-3"><i class="fa-regular fa-folder text-red-400 mt-1.5 text-xs"></i><span>현금흐름 포트폴리오: 당신이 꿈꾸는 월급</span></li>
+                            <li class="text-red-700 flex items-start gap-3 font-semibold mt-4 bg-red-50 p-3 rounded-lg"><i class="fa-solid fa-crosshairs mt-1"></i><span>[ 실전 가이드 ] 정답은 없다.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Epilogue -->
+            <div class="bg-slate-100 p-6 rounded-2xl border border-slate-200 text-center">
+                <p class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-1">Epilogue</p>
+                <p class="text-slate-800 text-lg font-bold">당신의 노후는 오늘 결정된다</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer Summary -->
+    <footer class="mt-16 text-center max-w-4xl px-4 w-full">
+        <div class="bg-slate-800 text-white rounded-2xl p-6 md:p-8 shadow-lg">
+            <h3 class="text-xl md:text-2xl font-bold mb-3">🚀 최종 목표: Unsinkable Ark & Turbo Engine</h3>
+            <p class="text-slate-300">
+                기초에서 다진 <strong>'잃지 않는 힘'</strong>과 심화에서 얻은 <strong>'이기는 기술'</strong>을 결합하여,<br class="hidden md:block">
+                어떤 경제 위기에도 흔들리지 않는 3050세대의 경제적 자유를 완성합니다.
+            </p>
+        </div>
+        <p class="text-slate-400 text-sm mt-8 pb-8">Copyright © KyoJin Yoon. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
