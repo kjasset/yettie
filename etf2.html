@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ETF로 제2의 월급 만들기: 3050세대를 위한 현금흐름 구축 가이드</title>
+    <title>ETF로 제2의 월급 만들기</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         html {
             scroll-behavior: smooth; /* 부드러운 스크롤 이동 */
-            scroll-padding-top: 20px; /* 스크롤 이동 시 상단 여백 확보 */
+            scroll-padding-top: 40px; /* 스크롤 이동 시 상단 여백 확보 */
         }
         body {
             font-family: 'Noto Sans KR', sans-serif;
@@ -54,20 +54,6 @@
         </p>
     </div>
 
-    <!-- Quick Link Buttons (Split) -->
-    <div class="flex flex-col sm:flex-row gap-4 mb-10 animate-bounce-slow">
-        <a href="#curriculum-basic" class="group bg-white border border-blue-200 text-blue-700 hover:bg-blue-50 px-6 py-3 rounded-full font-bold shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 min-w-[180px]">
-            <i class="fa-solid fa-anchor text-blue-400 group-hover:text-blue-600 transition-colors"></i>
-            기초과정 목차
-            <i class="fa-solid fa-arrow-down text-xs opacity-50 group-hover:translate-y-1 transition-transform"></i>
-        </a>
-        <a href="#curriculum-advanced" class="group bg-white border border-red-200 text-red-700 hover:bg-red-50 px-6 py-3 rounded-full font-bold shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 min-w-[180px]">
-            <i class="fa-solid fa-rocket text-red-400 group-hover:text-red-600 transition-colors"></i>
-            심화과정 목차
-            <i class="fa-solid fa-arrow-down text-xs opacity-50 group-hover:translate-y-1 transition-transform"></i>
-        </a>
-    </div>
-
     <!-- Header Section -->
     <header class="text-center mb-12 max-w-4xl w-full">
         <div class="inline-block px-6 py-2 bg-slate-200 rounded-full text-slate-700 text-lg font-bold mb-4 shadow-sm">
@@ -80,160 +66,187 @@
         <p class="text-lg text-slate-600 max-w-2xl mx-auto">
             생존을 위한 방패부터 성장을 위한 창까지, 단계별 금융 로드맵을 확인하세요.
         </p>
+        <p class="text-sm text-slate-500 mt-4 animate-pulse">
+            <i class="fa-solid fa-hand-pointer mr-1"></i> 아래 카드를 클릭하면 상세 목차로 이동합니다.
+        </p>
     </header>
 
-    <!-- SECTION 1: GOAL SUMMARY (Infographic) - Restored to Initial Design -->
+    <!-- SECTION 1: GOAL SUMMARY (Infographic) & Navigation Links -->
     <main class="grid md:grid-cols-2 gap-8 max-w-6xl w-full mb-16">
         
-        <!-- Column 1: Basic Course Summary -->
-        <section class="bg-white rounded-3xl overflow-hidden shadow-xl border-t-8 border-blue-600 relative flex flex-col h-full border border-slate-100">
-            <div class="absolute top-0 right-0 p-4 opacity-5">
-                <i class="fa-solid fa-ship text-9xl"></i>
-            </div>
-            
-            <div class="p-8 bg-blue-50">
-                <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-2xl font-black text-blue-900">기초과정</h2>
-                    <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full urbanist">STEP 1</span>
-                </div>
-                <h3 class="text-3xl font-bold mb-2 gradient-text-blue">금융 방주 (Ark) 구축</h3>
-                <p class="text-blue-800 font-medium italic">"공격보다 중요한 것은 생존이다."</p>
-                <p class="text-sm text-slate-600 mt-2">무너지지 않는 불침번(Unsinkable) 시스템 완성</p>
-            </div>
-
-            <div class="p-6 space-y-4 flex-grow">
-                <!-- Item 1 -->
-                <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm card-hover flex gap-4 items-start">
-                    <div class="bg-blue-100 p-3 rounded-lg text-blue-600 shrink-0">
-                        <i class="fa-solid fa-brain text-xl"></i>
+        <!-- Column 1: Basic Course Summary (Clickable) -->
+        <a href="#curriculum-basic" class="group block h-full no-underline transform transition-transform duration-300 hover:scale-[1.02]">
+            <section class="bg-white rounded-3xl overflow-hidden shadow-xl border-t-8 border-blue-600 relative flex flex-col h-full border border-slate-100 group-hover:ring-4 group-hover:ring-blue-100 transition-all">
+                
+                <!-- Header with Icon Background -->
+                <div class="p-8 bg-blue-50 relative overflow-hidden">
+                    <!-- Restored Icon: Ship (Ark) -->
+                    <div class="absolute top-2 right-2 p-2 opacity-10 pointer-events-none">
+                        <i class="fa-solid fa-ship text-9xl text-blue-900"></i>
                     </div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 text-lg">자본 마인드 장착</h4>
-                        <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
-                            <li>노동 소득의 한계 극복</li>
-                            <li>공포와 탐욕 통제 (잃지 않는 투자)</li>
-                        </ul>
+
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-2xl font-black text-blue-900">기초과정</h2>
+                            <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full urbanist">STEP 1</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-2 gradient-text-blue">금융 방주 (Ark) 구축</h3>
+                        <p class="text-blue-800 font-medium italic">"공격보다 중요한 것은 생존이다."</p>
+                        <p class="text-sm text-slate-600 mt-2">무너지지 않는 불침번(Unsinkable) 시스템 완성</p>
+                    </div>
+                    
+                    <!-- Click Hint (ALWAYS VISIBLE) -->
+                    <div class="absolute bottom-4 right-8 bg-white px-4 py-2 rounded-full shadow-md text-blue-600 text-sm font-bold border border-blue-100 flex items-center gap-2 group-hover:bg-blue-50 transition-colors z-20">
+                        상세 목차 보기 <i class="fa-solid fa-arrow-down animate-bounce"></i>
                     </div>
                 </div>
 
-                <!-- Item 2 -->
-                <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm card-hover flex gap-4 items-start">
-                    <div class="bg-blue-100 p-3 rounded-lg text-blue-600 shrink-0">
-                        <i class="fa-solid fa-filter text-xl"></i>
+                <div class="p-6 space-y-4 flex-grow pb-20">
+                    <!-- Item 1 -->
+                    <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm flex gap-4 items-start group-hover:shadow-md transition-shadow">
+                        <div class="bg-blue-100 p-3 rounded-lg text-blue-600 shrink-0">
+                            <i class="fa-solid fa-brain text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg">자본 마인드 장착</h4>
+                            <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
+                                <li>노동 소득의 한계 극복</li>
+                                <li>공포와 탐욕 통제 (잃지 않는 투자)</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 text-lg">ETF 감별 안목</h4>
-                        <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
-                            <li>종목명 해석 및 고배당 함정 회피</li>
-                            <li>CAGR(성장률)과 비용 분석 능력</li>
-                        </ul>
+
+                    <!-- Item 2 -->
+                    <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm flex gap-4 items-start group-hover:shadow-md transition-shadow">
+                        <div class="bg-blue-100 p-3 rounded-lg text-blue-600 shrink-0">
+                            <i class="fa-solid fa-filter text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg">ETF 감별 안목</h4>
+                            <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
+                                <li>종목명 해석 및 고배당 함정 회피</li>
+                                <li>CAGR(성장률)과 비용 분석 능력</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm flex gap-4 items-start group-hover:shadow-md transition-shadow">
+                        <div class="bg-blue-100 p-3 rounded-lg text-blue-600 shrink-0">
+                            <i class="fa-solid fa-shield-halved text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg">방주 포트폴리오</h4>
+                            <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
+                                <li>성장(공격) vs 배당/안전(수비) 황금 비율</li>
+                                <li>S&P500 + 채권 조합 (위기 방어)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm flex gap-4 items-start group-hover:shadow-md transition-shadow">
+                        <div class="bg-blue-100 p-3 rounded-lg text-blue-600 shrink-0">
+                            <i class="fa-solid fa-money-bill-wheat text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg">제1차 현금흐름</h4>
+                            <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
+                                <li>월배당(JEPI, SCHD) 기초 라인업</li>
+                                <li>연금저축/ISA 활용 세금 절약 시스템</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </a>
+
+        <!-- Column 2: Advanced Course Summary (Clickable) -->
+        <a href="#curriculum-advanced" class="group block h-full no-underline transform transition-transform duration-300 hover:scale-[1.02]">
+            <section class="bg-white rounded-3xl overflow-hidden shadow-xl border-t-8 border-red-500 relative flex flex-col h-full border border-slate-100 group-hover:ring-4 group-hover:ring-red-100 transition-all">
+                
+                <!-- Header with Icon Background -->
+                <div class="p-8 bg-red-50 relative overflow-hidden">
+                    <!-- Restored Icon: Rocket (Engine) -->
+                    <div class="absolute top-2 right-2 p-2 opacity-10 pointer-events-none">
+                        <i class="fa-solid fa-rocket text-9xl text-red-900"></i>
+                    </div>
+
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-2xl font-black text-red-900">심화과정</h2>
+                            <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full urbanist">STEP 2</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-2 gradient-text-red">터보 엔진 장착</h3>
+                        <p class="text-red-800 font-medium italic">"방패를 넘어 창을 들 시간이다."</p>
+                        <p class="text-sm text-slate-600 mt-2">경제적 자유를 앞당기는 결정적 한 방</p>
+                    </div>
+                    
+                    <!-- Click Hint (ALWAYS VISIBLE) -->
+                    <div class="absolute bottom-4 right-8 bg-white px-4 py-2 rounded-full shadow-md text-red-600 text-sm font-bold border border-red-100 flex items-center gap-2 group-hover:bg-red-50 transition-colors z-20">
+                        상세 목차 보기 <i class="fa-solid fa-arrow-down animate-bounce"></i>
                     </div>
                 </div>
 
-                <!-- Item 3 -->
-                <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm card-hover flex gap-4 items-start">
-                    <div class="bg-blue-100 p-3 rounded-lg text-blue-600 shrink-0">
-                        <i class="fa-solid fa-shield-halved text-xl"></i>
+                <div class="p-6 space-y-4 flex-grow pb-20">
+                    <!-- Item 1 -->
+                    <div class="bg-white p-5 rounded-xl border border-red-100 shadow-sm flex gap-4 items-start group-hover:shadow-md transition-shadow">
+                        <div class="bg-red-100 p-3 rounded-lg text-red-500 shrink-0">
+                            <i class="fa-solid fa-eye text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg">시장을 꿰뚫는 통찰</h4>
+                            <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
+                                <li>이면의 생태계 발견 (전력망, SW 등)</li>
+                                <li>거시 경제 흐름 선점 (K-조선, 방산 등)</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 text-lg">방주 포트폴리오</h4>
-                        <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
-                            <li>성장(공격) vs 배당/안전(수비) 황금 비율</li>
-                            <li>S&P500 + 채권 조합 (위기 방어)</li>
-                        </ul>
+
+                    <!-- Item 2 -->
+                    <div class="bg-white p-5 rounded-xl border border-red-100 shadow-sm flex gap-4 items-start group-hover:shadow-md transition-shadow">
+                        <div class="bg-red-100 p-3 rounded-lg text-red-500 shrink-0">
+                            <i class="fa-solid fa-chess-knight text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg">올라운더(All-rounder)</h4>
+                            <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
+                                <li>상승장: 레버리지 & 혁신 테마 가속</li>
+                                <li>횡보/하락장: 커버드콜 & 채권 방어</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="bg-white p-5 rounded-xl border border-red-100 shadow-sm flex gap-4 items-start group-hover:shadow-md transition-shadow">
+                        <div class="bg-red-100 p-3 rounded-lg text-red-500 shrink-0">
+                            <i class="fa-solid fa-faucet-drip text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg">제2의 월급 시스템</h4>
+                            <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
+                                <li>마르지 않는 현금 우물 구축</li>
+                                <li>월 300~700만 원 목표 자동화 수입</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="bg-white p-5 rounded-xl border border-red-100 shadow-sm flex gap-4 items-start group-hover:shadow-md transition-shadow">
+                        <div class="bg-red-100 p-3 rounded-lg text-red-500 shrink-0">
+                            <i class="fa-solid fa-clipboard-check text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg">맞춤형 정답지 (Solution)</h4>
+                            <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
+                                <li>연령/성향/은퇴 상황별 최적 포트폴리오</li>
+                                <li>검증된 ETF 정답지로 시행착오 최소화</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Item 4 -->
-                <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm card-hover flex gap-4 items-start">
-                    <div class="bg-blue-100 p-3 rounded-lg text-blue-600 shrink-0">
-                        <i class="fa-solid fa-money-bill-wheat text-xl"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 text-lg">제1차 현금흐름</h4>
-                        <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
-                            <li>월배당(JEPI, SCHD) 기초 라인업</li>
-                            <li>연금저축/ISA 활용 세금 절약 시스템</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Column 2: Advanced Course Summary -->
-        <section class="bg-white rounded-3xl overflow-hidden shadow-xl border-t-8 border-red-500 relative flex flex-col h-full border border-slate-100">
-            <div class="absolute top-0 right-0 p-4 opacity-5">
-                <i class="fa-solid fa-rocket text-9xl"></i>
-            </div>
-
-            <div class="p-8 bg-red-50">
-                <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-2xl font-black text-red-900">심화과정</h2>
-                    <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full urbanist">STEP 2</span>
-                </div>
-                <h3 class="text-3xl font-bold mb-2 gradient-text-red">터보 엔진 장착</h3>
-                <p class="text-red-800 font-medium italic">"방패를 넘어 창을 들 시간이다."</p>
-                <p class="text-sm text-slate-600 mt-2">경제적 자유를 앞당기는 결정적 한 방</p>
-            </div>
-
-            <div class="p-6 space-y-4 flex-grow">
-                <!-- Item 1 -->
-                <div class="bg-white p-5 rounded-xl border border-red-100 shadow-sm card-hover flex gap-4 items-start">
-                    <div class="bg-red-100 p-3 rounded-lg text-red-500 shrink-0">
-                        <i class="fa-solid fa-eye text-xl"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 text-lg">시장을 꿰뚫는 통찰</h4>
-                        <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
-                            <li>이면의 생태계 발견 (전력망, SW 등)</li>
-                            <li>거시 경제 흐름 선점 (K-조선, 방산 등)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="bg-white p-5 rounded-xl border border-red-100 shadow-sm card-hover flex gap-4 items-start">
-                    <div class="bg-red-100 p-3 rounded-lg text-red-500 shrink-0">
-                        <i class="fa-solid fa-chess-knight text-xl"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 text-lg">올라운더(All-rounder)</h4>
-                        <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
-                            <li>상승장: 레버리지 & 혁신 테마 가속</li>
-                            <li>횡보/하락장: 커버드콜 & 채권 방어</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="bg-white p-5 rounded-xl border border-red-100 shadow-sm card-hover flex gap-4 items-start">
-                    <div class="bg-red-100 p-3 rounded-lg text-red-500 shrink-0">
-                        <i class="fa-solid fa-faucet-drip text-xl"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 text-lg">제2의 월급 시스템</h4>
-                        <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
-                            <li>마르지 않는 현금 우물 구축</li>
-                            <li>월 300~700만 원 목표 자동화 수입</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div class="bg-white p-5 rounded-xl border border-red-100 shadow-sm card-hover flex gap-4 items-start">
-                    <div class="bg-red-100 p-3 rounded-lg text-red-500 shrink-0">
-                        <i class="fa-solid fa-clipboard-check text-xl"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 text-lg">맞춤형 정답지 (Solution)</h4>
-                        <ul class="text-sm text-slate-600 mt-1 list-disc list-inside">
-                            <li>연령/성향/은퇴 상황별 최적 포트폴리오</li>
-                            <li>검증된 ETF 정답지로 시행착오 최소화</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        </a>
 
     </main>
 
@@ -248,7 +261,6 @@
     <section class="max-w-4xl w-full flex flex-col gap-16">
         
         <!-- PART 1: Basic Course TOC -->
-        <!-- ID added for scroll target -->
         <div id="curriculum-basic" class="space-y-6 scroll-mt-24">
             
             <!-- Section Header -->
@@ -366,7 +378,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <!-- Epilogue -->
             <div class="bg-slate-100 p-6 rounded-2xl border border-slate-200 text-center">
                 <p class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-1">Epilogue</p>
@@ -382,7 +394,6 @@
         </div>
 
         <!-- PART 2: Advanced Course TOC -->
-        <!-- ID added for scroll target -->
         <div id="curriculum-advanced" class="space-y-6 scroll-mt-24">
 
             <!-- Section Header -->
