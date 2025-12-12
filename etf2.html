@@ -40,21 +40,47 @@
 </head>
 <body class="min-h-screen flex flex-col items-center py-10 px-4">
 
-    <!-- Book Title Section -->
-    <div class="w-full max-w-4xl text-center mb-6 pb-6 border-b border-slate-300/50">
-        <div class="inline-flex items-center justify-center space-x-2 text-slate-500 mb-2">
-            <i class="fa-solid fa-book-open"></i>
-            <span class="text-sm font-bold uppercase tracking-wider urbanist">Book Title</span>
+    <!-- Book Title Section (Updated with Cover Image) -->
+    <div class="w-full max-w-5xl mx-auto mb-12 pb-8 border-b border-slate-300/50 flex flex-col md:flex-row items-center gap-8 md:gap-12 animate-fade-in-up">
+        
+        <!-- Book Cover Image -->
+        <div class="shrink-0 relative group">
+            <!-- Decorative Glow Background -->
+            <div class="absolute -inset-2 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+            <!-- Actual Image -->
+            <img src="/yettie/etf001.jpg" alt="책 표지: ETF로 제2의 월급 만들기" 
+                 class="relative w-48 md:w-60 rounded-lg shadow-2xl transform transition-transform duration-300 group-hover:scale-105 object-cover bg-slate-200 border border-slate-100"
+                 onerror="this.src='https://placehold.co/400x560/e2e8f0/1e293b?text=Book+Cover'; this.onerror=null;">
         </div>
-        <h1 class="text-2xl md:text-3xl font-black text-slate-800">
-            ETF로 제2의 월급 만들기
-        </h1>
-        <p class="text-lg md:text-xl text-slate-600 mt-1 font-medium">
-            : 3050세대를 위한 현금흐름 구축 가이드
-        </p>
+        
+        <!-- Title Text -->
+        <div class="text-center md:text-left flex-grow">
+            <div class="inline-flex items-center justify-center md:justify-start space-x-2 text-blue-600 mb-3 bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+                <i class="fa-solid fa-book-open text-xs"></i>
+                <span class="text-xs font-bold uppercase tracking-wider urbanist">Practical Guide</span>
+            </div>
+            <h1 class="text-3xl md:text-5xl font-black text-slate-800 leading-tight mb-3">
+                ETF로 <span class="text-blue-600">제2의 월급</span> 만들기
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-600 font-medium mb-6">
+                : 3050세대를 위한 현금흐름 구축 가이드
+            </p>
+            
+            <!-- Hashtags -->
+            <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-6">
+                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs md:text-sm rounded-md font-bold border border-slate-200">#경제적자유</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs md:text-sm rounded-md font-bold border border-slate-200">#월배당ETF</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs md:text-sm rounded-md font-bold border border-slate-200">#노후준비</span>
+            </div>
+
+            <!-- Author Info -->
+            <p class="text-slate-500 font-medium">
+                <i class="fa-solid fa-pen-nib mr-2 text-slate-400"></i>윤교진 지음
+            </p>
+        </div>
     </div>
 
-    <!-- Header Section -->
+    <!-- Header Section (Project Badge & Title) -->
     <header class="text-center mb-12 max-w-4xl w-full">
         <div class="inline-block px-6 py-2 bg-slate-200 rounded-full text-slate-700 text-lg font-bold mb-4 shadow-sm">
             3050 세대 경제적 자유 프로젝트
@@ -521,7 +547,7 @@
                 어떤 경제 위기에도 흔들리지 않는 3050세대의 경제적 자유를 완성합니다.
             </p>
         </div>
-        <p class="text-slate-400 text-sm mt-8 pb-8">Copyright © KyoJin Yoon. All Rights Reserved.</p>
+        <p class="text-slate-400 text-sm mt-8 pb-8">Copyright © K. J. Yoon. All Rights Reserved.</p>
     </footer>
 
 </body>
