@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보유세 계산기 by 윤교진</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            background-color: #f8fafc;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <header class="bg-indigo-600 text-white shadow-md sticky top-0 z-10">
+        <div class="max-w-6xl mx-auto px-4 py-5 flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-bold tracking-tight">2026 부동산 보유세 계산기 (2027년 대비) by 윤교진</h1>
+                <p class="text-indigo-200 text-sm mt-1">현행 vs 2027년 세제개편안(수정안) 비교</p>
+            </div>
+            <div class="hidden sm:block text-right">
+                <span class="bg-indigo-500 text-xs px-2 py-1 rounded border border-indigo-400">데이터 기준: 2026년 9월 국회 제출안</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
+	본 프로그램은 세제개편안 기준으로 개발된 것으로, 학습용으로만 활용하시기 바랍니다.
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left Column: Input Form -->
+            <div class="lg:col-span-5 space-y-6">
+                <div class="bg-white rounded-xl p-6 card-shadow border border-slate-100">
+                    <h2 class="text-lg font-bold text-slate-800 mb-5 flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        주택 정보 입력
+                    </h2>
+                    
+                    <form id="taxForm" class="space-y-5">
+                        
+                        <!-- 공시가격 입력 -->
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">주택 공시가격 (단일 물건 기준)</label>
+                            <div class="relative">
+                                <input type="number" id="price" class="w-full pl-4 pr-12 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all text-lg font-semibold" placeholder="예: 150000" value="150000" step="1000">
+                                <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                                    <span class="text-slate-500 font-medium">만원</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-indigo-600 mt-1 font-medium" id="priceDisplay">15억 0,000만 원</p>
+                        </div>
+
+                        <!-- 1주택 / 다주택 -->
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">소유 주택 수</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="houseCount" value="1" class="peer sr-only" checked>
+                                    <div class="text-center py-2 px-4 rounded-lg border border-slate-200 peer-checked:bg-indigo-50 peer-checked:border-indigo-500 peer-checked:text-indigo-700 font-medium transition-all">1주택</div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="houseCount" value="multi" class="peer sr-only">
+                                    <div class="text-center py-2 px-4 rounded-lg border border-slate-200 peer-checked:bg-indigo-50 peer-checked:border-indigo-500 peer-checked:text-indigo-700 font-medium transition-all">다주택 (종합합산)</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 명의 -->
+                        <div id="ownershipSection">
+                            <label class="block text-sm font-medium text-slate-700 mb-1">소유 명의</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="ownership" value="single" class="peer sr-only" checked>
+                                    <div class="text-center py-2 px-4 rounded-lg border border-slate-200 peer-checked:bg-indigo-50 peer-checked:border-indigo-500 peer-checked:text-indigo-700 font-medium transition-all">단독명의</div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="ownership" value="joint" class="peer sr-only">
+                                    <div class="text-center py-2 px-4 rounded-lg border border-slate-200 peer-checked:bg-indigo-50 peer-checked:border-indigo-500 peer-checked:text-indigo-700 font-medium transition-all">부부공동명의 (5:5)</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 실거주 여부 -->
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">실거주 여부 (2027 개편안 핵심)</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="residence" value="resident" class="peer sr-only" checked>
+                                    <div class="text-center py-2 px-4 rounded-lg border border-slate-200 peer-checked:bg-indigo-50 peer-checked:border-indigo-500 peer-checked:text-indigo-700 font-medium transition-all">거주함</div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="residence" value="non_resident" class="peer sr-only">
+                                    <div class="text-center py-2 px-4 rounded-lg border border-slate-200 peer-checked:bg-indigo-50 peer-checked:border-indigo-500 peer-checked:text-indigo-700 font-medium transition-all">거주하지 않음</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 공제 요건 (1주택 단독명의 시) -->
+                        <div id="deductionSection" class="p-4 bg-slate-50 rounded-lg border border-slate-200 space-y-4">
+                            <h3 class="text-sm font-bold text-slate-700 flex items-center">
+                                <svg class="w-4 h-4 mr-1 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                종부세 세액공제 요건 (1주택자)
+                            </h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-slate-600 mb-1">연령</label>
+                                    <select id="age" class="w-full p-2 rounded border border-slate-300 text-sm outline-none focus:border-indigo-500">
+                                        <option value="0">60세 미만 (공제없음)</option>
+                                        <option value="10">60세~64세 (10%)</option>
+                                        <option value="20">65세~69세 (20%)</option>
+                                        <option value="30">70세 이상 (30%)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-slate-600 mb-1">보유/거주 기간</label>
+                                    <select id="holding" class="w-full p-2 rounded border border-slate-300 text-sm outline-none focus:border-indigo-500">
+                                        <option value="0">5년 미만 (공제없음)</option>
+                                        <option value="20">5년~10년 미만 (20%)</option>
+                                        <option value="40">10년~15년 미만 (40%)</option>
+                                        <option value="50">15년 이상 (50%)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <p class="text-[11px] text-slate-500 leading-tight mt-2">
+                                * 현행은 보유기간 기준, 27년 개편안은 거주기간 기준으로 적용됩니다. <br>
+                                * 합산 한도: 80% (27년 신설 한도: 800만원)
+                            </p>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Information Banner -->
+                <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 flex items-start">
+                    <svg class="w-6 h-6 text-blue-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <p class="text-sm text-blue-800 leading-relaxed">
+                        <strong>2026년 세제개편안(9/1 국회제출안) 반영 내용:</strong><br>
+                        • 1주택 실거주 기본공제 12억 → 14억 상향<br>
+                        • 1주택 비거주 기본공제 12억 유지 (9억 축소안 철회)<br>
+                        • 부부공동(비거주) 1인당 6억으로 완화 (기존안 4억)<br>
+                        • 종부세 세부담 상한 150% 유지
+                    </p>
+                </div>
+				[위례평생학습관] Designed by K. J. Yoon, Oct. 3, 2026 (V1.1) <br>
+                Copyright ⓒ 2026 K. J. Yoon. All rights reserved.
+            </div>
+
+            <!-- Right Column: Results -->
+            <div class="lg:col-span-7 space-y-6">
+                <!-- Total Comparison Card -->
+                <div class="bg-white rounded-xl p-6 card-shadow border border-slate-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-bl-full -mr-8 -mt-8 z-0"></div>
+                    <div class="relative z-10">
+                        <h2 class="text-lg font-bold text-slate-800 mb-6 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            예상 보유세 비교 (재산세 + 종부세)
+                        </h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- 현행 -->
+                            <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-sm flex flex-col justify-between">
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-500 mb-1">현행 기준 (2026년)</p>
+                                    <div class="text-3xl font-bold text-slate-800" id="currentTotal">0원</div>
+                                </div>
+                                <div class="mt-6 space-y-2 text-sm border-t border-slate-100 pt-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-500">재산세(지방교육,도시분 포함)</span>
+                                        <span class="font-medium" id="currentProperty">0원</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-500">종합부동산세(농특세 포함)</span>
+                                        <span class="font-medium text-rose-600" id="currentComprehensive">0원</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 개편안 -->
+                            <div class="p-5 rounded-xl border-2 border-indigo-500 bg-indigo-50/30 shadow-md flex flex-col justify-between relative overflow-hidden">
+                                <div class="absolute top-0 right-0 bg-indigo-500 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg">2027 적용</div>
+                                <div>
+                                    <p class="text-sm font-semibold text-indigo-700 mb-1">개편안 기준 (2027년)</p>
+                                    <div class="text-3xl font-bold text-indigo-700" id="newTotal">0원</div>
+                                </div>
+                                <div class="mt-6 space-y-2 text-sm border-t border-indigo-100 pt-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-500">재산세 (변동없음)</span>
+                                        <span class="font-medium" id="newProperty">0원</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-indigo-600 font-medium">종합부동산세(농특세 포함)</span>
+                                        <span class="font-bold text-indigo-700" id="newComprehensive">0원</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 차액 알림 -->
+                        <div class="mt-6 p-4 rounded-lg bg-slate-800 text-white flex items-center justify-between">
+                            <span class="font-medium">세부담 차이</span>
+                            <div class="text-right">
+                                <span class="text-2xl font-bold" id="taxDifference">0원</span>
+                                <span class="text-sm text-slate-300 ml-1" id="taxDiffLabel">절감</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Breakdown -->
+                <div class="bg-white rounded-xl p-6 card-shadow border border-slate-100">
+                    <h3 class="text-md font-bold text-slate-800 mb-4">종합부동산세 산출 내역 상세</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left text-slate-600">
+                            <thead class="text-xs text-slate-500 uppercase bg-slate-50 border-y border-slate-200">
+                                <tr>
+                                    <th scope="col" class="px-4 py-3">구분</th>
+                                    <th scope="col" class="px-4 py-3 text-right">현행 (2026)</th>
+                                    <th scope="col" class="px-4 py-3 text-right text-indigo-700 font-bold bg-indigo-50/50">개편안 (2027)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr>
+                                    <td class="px-4 py-3 font-medium">기본공제액</td>
+                                    <td class="px-4 py-3 text-right" id="dt_deduct_curr">0</td>
+                                    <td class="px-4 py-3 text-right font-medium bg-indigo-50/30" id="dt_deduct_new">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium">과세표준 (공정시장가액비율)</td>
+                                    <td class="px-4 py-3 text-right"><span id="dt_base_curr">0</span> <span class="text-xs text-slate-400">(60%)</span></td>
+                                    <td class="px-4 py-3 text-right font-medium bg-indigo-50/30"><span id="dt_base_new">0</span> <span class="text-xs text-indigo-400">(70%)</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium">세율적용 세액</td>
+                                    <td class="px-4 py-3 text-right" id="dt_tax_curr">0</td>
+                                    <td class="px-4 py-3 text-right font-medium bg-indigo-50/30" id="dt_tax_new">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium">세액공제 (고령/보유·거주)</td>
+                                    <td class="px-4 py-3 text-right text-emerald-600" id="dt_credit_curr">0</td>
+                                    <td class="px-4 py-3 text-right font-medium text-emerald-600 bg-indigo-50/30" id="dt_credit_new">0</td>
+                                </tr>
+                                <tr class="bg-slate-50/50">
+                                    <td class="px-4 py-3 font-bold text-slate-800">최종 종부세 (농특세 20% 포함)</td>
+                                    <td class="px-4 py-3 text-right font-bold text-slate-800" id="dt_final_curr">0</td>
+                                    <td class="px-4 py-3 text-right font-bold text-indigo-700 bg-indigo-100/50" id="dt_final_new">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-3">* 본 계산기는 산식 이해를 돕기 위한 시뮬레이션용이며, 이중과세 차감액 등 일부 로직이 약식 계산되어 실제 과세액과 차이가 있을 수 있습니다. 세부담 상한은 고려되지 않았습니다.<br>
+					* 해당연도 보유세가 직전연도의 150%를 초과하지 않도록 종부세 제한.
+					</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Utilities
+        const formatKRW = (num) => {
+            if (num === 0) return '0원';
+            return Math.floor(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '원';
+        };
+
+        const formatKoreanCurrency = (amountInManwon) => {
+            if (!amountInManwon || amountInManwon <= 0) return '0원';
+            
+            let uk = Math.floor(amountInManwon / 10000);
+            let man = amountInManwon % 10000;
+            
+            let res = '';
+            if (uk > 0) res += uk + '억 ';
+            if (man > 0) res += man.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '만 ';
+            return res + '원';
+        };
+
+        // DOM Elements
+        const elPrice = document.getElementById('price');
+        const elPriceDisplay = document.getElementById('priceDisplay');
+        const radiosHouseCount = document.getElementsByName('houseCount');
+        const radiosOwnership = document.getElementsByName('ownership');
+        const radiosResidence = document.getElementsByName('residence');
+        const elAge = document.getElementById('age');
+        const elHolding = document.getElementById('holding');
+        const elOwnershipSection = document.getElementById('ownershipSection');
+        const elDeductionSection = document.getElementById('deductionSection');
+
+        function attachListeners() {
+            const inputs = [elPrice, elAge, elHolding, ...radiosHouseCount, ...radiosOwnership, ...radiosResidence];
+            inputs.forEach(input => {
+                input.addEventListener('input', updateCalculation);
+                input.addEventListener('change', updateCalculation);
+            });
+
+            // Toggle visibility based on House Count
+            radiosHouseCount.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    if (e.target.value === 'multi') {
+                        elOwnershipSection.style.opacity = '0.5';
+                        elOwnershipSection.style.pointerEvents = 'none';
+                        elDeductionSection.style.opacity = '0.5';
+                        elDeductionSection.style.pointerEvents = 'none';
+                        // Force single logic for multi
+                        document.querySelector('input[name="ownership"][value="single"]').checked = true;
+                    } else {
+                        elOwnershipSection.style.opacity = '1';
+                        elOwnershipSection.style.pointerEvents = 'auto';
+                        elDeductionSection.style.opacity = '1';
+                        elDeductionSection.style.pointerEvents = 'auto';
+                    }
+                });
+            });
+            
+            // Toggle Deduction section based on Joint Ownership
+            radiosOwnership.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    if(e.target.value === 'joint') {
+                        elDeductionSection.style.opacity = '0.5';
+                        elDeductionSection.style.pointerEvents = 'none';
+                    } else if (document.querySelector('input[name="houseCount"]:checked').value === '1') {
+                        elDeductionSection.style.opacity = '1';
+                        elDeductionSection.style.pointerEvents = 'auto';
+                    }
+                });
+            });
+        }
+
+        function calculatePropertyTax(priceWon, isOneHouse) {
+            // 2026 Property Tax Logic (재산세)
+            const fmvRatio = isOneHouse ? 0.45 : 0.60;
+            const taxBase = priceWon * fmvRatio;
+            let tax = 0;
+            const isSpecial = isOneHouse && priceWon <= 900000000;
+
+            if (isSpecial) {
+                if (taxBase <= 60000000) tax = taxBase * 0.0005;
+                else if (taxBase <= 150000000) tax = 30000 + (taxBase - 60000000) * 0.001;
+                else if (taxBase <= 300000000) tax = 120000 + (taxBase - 150000000) * 0.002;
+                else tax = 420000 + (taxBase - 300000000) * 0.0035;
+            } else {
+                if (taxBase <= 60000000) tax = taxBase * 0.001;
+                else if (taxBase <= 150000000) tax = 60000 + (taxBase - 60000000) * 0.0015;
+                else if (taxBase <= 300000000) tax = 195000 + (taxBase - 150000000) * 0.0025;
+                else tax = 570000 + (taxBase - 300000000) * 0.004;
+            }
+
+            const localEd = tax * 0.2;
+            const cityPlan = taxBase * 0.0014;
+            return tax + localEd + cityPlan;
+        }
+
+        function calcComprehensiveTax(priceWon, isOneHouse, isJoint, isResident, creditPercent, mode) {
+            let totalDeduction = 0;
+            let fmvRatio = 0.6; // Default 현행 60%
+
+            if (mode === 'current') {
+                fmvRatio = 0.6;
+                if (isOneHouse) {
+                    if (isJoint) {
+                        totalDeduction = 900000000 * 2; // 부부 각 9억 (비거주도 동일하게 9억 가정, 현재 실무상)
+                    } else {
+                        totalDeduction = 1200000000; // 1주택 12억
+                    }
+                } else {
+                    totalDeduction = 900000000; // 다주택 기본 9억
+                }
+            } else if (mode === 'new') {
+                fmvRatio = 0.7; // 27년 70% 인상 반영
+                if (isOneHouse) {
+                    if (isResident) {
+                        totalDeduction = isJoint ? (900000000 * 2) : 1400000000; // 거주: 공동 18억, 단독 14억
+                    } else {
+                        totalDeduction = isJoint ? (600000000 * 2) : 1200000000; // 비거주: 공동 12억(수정안), 단독 12억
+                    }
+                } else {
+                    totalDeduction = 900000000; // 다주택 기본 9억 (단순화)
+                }
+            }
+
+            // Calculation happens per person for joint ownership.
+            const owners = isJoint ? 2 : 1;
+            const pricePerPerson = priceWon / owners;
+            const deductPerPerson = totalDeduction / owners;
+
+            let taxBasePerPerson = (pricePerPerson - deductPerPerson) * fmvRatio;
+            if (taxBasePerPerson < 0) taxBasePerPerson = 0;
+
+            // Simplified Brackets
+            let taxPerPerson = 0;
+            if (taxBasePerPerson > 0) {
+                // Approximate progressive rate application
+                let rate = 0;
+                let deduction = 0;
+
+                if (mode === 'current') {
+                    // Current rates (1,2 house)
+                    if (taxBasePerPerson <= 300000000) { rate = 0.005; deduction = 0; }
+                    else if (taxBasePerPerson <= 600000000) { rate = 0.007; deduction = 600000; }
+                    else if (taxBasePerPerson <= 1200000000) { rate = 0.010; deduction = 2400000; }
+                    else if (taxBasePerPerson <= 2500000000) { rate = 0.013; deduction = 6000000; }
+                    else if (taxBasePerPerson <= 5000000000) { rate = 0.015; deduction = 11000000; }
+                    else if (taxBasePerPerson <= 9400000000) { rate = 0.020; deduction = 36000000; }
+                    else { rate = 0.027; deduction = 101800000; }
+                    
+                    if(!isOneHouse) {
+                        // Very rough approximation for multi-home penalty in current system if applied, 
+                        // but sticking to standard table for simplicity in UI unless 3-house is specified.
+                    }
+
+                } else {
+                    // 2027 New Rates (1,2 house - adjusted slightly higher for 6-12억)
+                    if (taxBasePerPerson <= 300000000) { rate = 0.005; deduction = 0; }
+                    else if (taxBasePerPerson <= 600000000) { rate = 0.007; deduction = 600000; }
+                    else if (taxBasePerPerson <= 1200000000) { rate = 0.013; deduction = 4200000; } // Increased to 1.3%
+                    else if (taxBasePerPerson <= 2500000000) { rate = 0.015; deduction = 6600000; } // Increased to 1.5%
+                    else if (taxBasePerPerson <= 5000000000) { rate = 0.020; deduction = 19100000; } // Increased to 2.0%
+                    else if (taxBasePerPerson <= 9400000000) { rate = 0.027; deduction = 54100000; } // Increased to 2.7%
+                    else { rate = 0.035; deduction = 129300000; } // Increased to 3.5%
+                }
+
+                taxPerPerson = (taxBasePerPerson * rate) - deduction;
+                
+                // Property Tax Deduction (Simplified Approximation to prevent double taxation)
+                // Roughly 30% of calculated tax is offset by property tax already paid on that base
+                taxPerPerson = taxPerPerson * 0.7; 
+            }
+            if (taxPerPerson < 0) taxPerPerson = 0;
+
+            // Apply Tax Credits (Only for 1 house, single ownership in this logic scope)
+            let creditAmountPerPerson = 0;
+            if (isOneHouse && !isJoint && taxPerPerson > 0) {
+                let creditRatio = creditPercent / 100;
+                if (creditRatio > 0.8) creditRatio = 0.8; // Max 80%
+                
+                creditAmountPerPerson = taxPerPerson * creditRatio;
+                
+                // 2027 Cap logic
+                if (mode === 'new' && creditAmountPerPerson > 8000000) {
+                    creditAmountPerPerson = 8000000;
+                }
+            }
+            
+            const finalTaxPerPerson = taxPerPerson - creditAmountPerPerson;
+            const totalFinalTax = finalTaxPerPerson > 0 ? finalTaxPerPerson * owners : 0;
+            
+            // Rural special tax (20% of final tax)
+            const ruralTax = totalFinalTax * 0.2;
+
+            return {
+                deduction: totalDeduction,
+                taxBase: taxBasePerPerson * owners, // Display total household tax base
+                rawTax: (taxPerPerson * owners),
+                credit: (creditAmountPerPerson * owners),
+                finalTax: totalFinalTax,
+                ruralTax: ruralTax,
+                total: totalFinalTax + ruralTax
+            };
+        }
+
+        function updateCalculation() {
+            // Inputs
+            const priceManwon = parseInt(elPrice.value) || 0;
+            const priceWon = priceManwon * 10000;
+            elPriceDisplay.innerText = formatKoreanCurrency(priceManwon);
+
+            const isOneHouse = document.querySelector('input[name="houseCount"]:checked').value === '1';
+            const isJoint = document.querySelector('input[name="ownership"]:checked')?.value === 'joint' && isOneHouse;
+            const isResident = document.querySelector('input[name="residence"]:checked').value === 'resident';
+            
+            const ageVal = parseInt(elAge.value) || 0;
+            const holdingVal = parseInt(elHolding.value) || 0;
+            const creditPercent = Math.min(ageVal + holdingVal, 80);
+
+            // 1. Property Tax (재산세) - Remains same for both in this model
+            const propertyTax = calculatePropertyTax(priceWon, isOneHouse);
+
+            // 2. Comprehensive Tax (종부세)
+            const currJongbu = calcComprehensiveTax(priceWon, isOneHouse, isJoint, isResident, creditPercent, 'current');
+            const newJongbu = calcComprehensiveTax(priceWon, isOneHouse, isJoint, isResident, creditPercent, 'new');
+
+            // Totals
+            const totalCurr = propertyTax + currJongbu.total;
+            const totalNew = propertyTax + newJongbu.total;
+
+            // DOM Updates - Summaries
+            document.getElementById('currentProperty').innerText = formatKRW(propertyTax);
+            document.getElementById('newProperty').innerText = formatKRW(propertyTax);
+            
+            document.getElementById('currentComprehensive').innerText = formatKRW(currJongbu.total);
+            document.getElementById('newComprehensive').innerText = formatKRW(newJongbu.total);
+            
+            document.getElementById('currentTotal').innerText = formatKRW(totalCurr);
+            document.getElementById('newTotal').innerText = formatKRW(totalNew);
+
+            // Differences
+            const diff = totalNew - totalCurr;
+            const elDiff = document.getElementById('taxDifference');
+            const elDiffLabel = document.getElementById('taxDiffLabel');
+            
+            if (diff > 0) {
+                elDiff.innerText = '+' + formatKRW(diff);
+                elDiff.className = "text-2xl font-bold text-rose-400";
+                elDiffLabel.innerText = "증가";
+            } else if (diff < 0) {
+                elDiff.innerText = '-' + formatKRW(Math.abs(diff));
+                elDiff.className = "text-2xl font-bold text-emerald-400";
+                elDiffLabel.innerText = "감소";
+            } else {
+                elDiff.innerText = "0원";
+                elDiff.className = "text-2xl font-bold text-slate-300";
+                elDiffLabel.innerText = "변동없음";
+            }
+
+            // DOM Updates - Details Table
+            document.getElementById('dt_deduct_curr').innerText = formatKRW(currJongbu.deduction);
+            document.getElementById('dt_deduct_new').innerText = formatKRW(newJongbu.deduction);
+            
+            document.getElementById('dt_base_curr').innerText = formatKRW(currJongbu.taxBase);
+            document.getElementById('dt_base_new').innerText = formatKRW(newJongbu.taxBase);
+
+            document.getElementById('dt_tax_curr').innerText = formatKRW(currJongbu.rawTax);
+            document.getElementById('dt_tax_new').innerText = formatKRW(newJongbu.rawTax);
+
+            document.getElementById('dt_credit_curr').innerText = "-" + formatKRW(currJongbu.credit);
+            document.getElementById('dt_credit_new').innerText = "-" + formatKRW(newJongbu.credit);
+
+            document.getElementById('dt_final_curr').innerText = formatKRW(currJongbu.total);
+            document.getElementById('dt_final_new').innerText = formatKRW(newJongbu.total);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            attachListeners();
+            updateCalculation();
+        });
+    </script>
+</body>
+</html>
